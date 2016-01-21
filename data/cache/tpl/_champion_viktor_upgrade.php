@@ -1,0 +1,30 @@
+<? if(!defined('IN_WP')) exit('Access Denied');?>
+<div class="viktor-skills">
+  <h2 class="champion-stats">Most Frequent Upgrades</h2>
+  <?php  $viktor = $championData['unique']['mostGames']; $i=0;?>
+  <?php foreach($viktor['order'] as $order) { ?> 
+  <div class="viktor-skill">
+    <img src="//ddragon.leagueoflegends.com/cdn/<?php echo  CORE_DDPATCH ?>/img/spell/<?php echo  $championData['skills']['skillInfo'][$order-1]['img'] ?>" tooltip="<?php echo  $championData['skills']['skillInfo'][$order-1]['name'] ?>"/>
+    <span class="viktor-key"><?php echo  $championData['skills']['skillInfo'][$order-1]['key'] ?></span>
+    <img src="//ddragon.leagueoflegends.com/cdn/<?php echo  CORE_DDPATCH ?>/img/item/<?php echo  3196+$i ?>.png" class="possible-build"/>
+  </div>
+  <?php  if ($i!==2){ ?> <small>></small> <?php }?>
+
+  <?php  $i++; } ?>
+  <div class="build-text"><strong><?php echo  $viktor['winPercent'] ?>%</strong> Win Rate | <strong><?php echo  $viktor['games'] ?></strong> Games </div>
+</div>
+<div class="viktor-skills">
+  <h2 class="champion-stats">Highest Win % Upgrades</h2>
+
+  <?php  $viktor = $championData['unique']['highestWinPercent']; $i = 0?>
+  <?php foreach($viktor['order'] as $order) { ?> 
+  <div class="viktor-skill">
+    <img src="//ddragon.leagueoflegends.com/cdn/<?php echo  CORE_DDPATCH ?>/img/spell/<?php echo  $championData['skills']['skillInfo'][$order-1]['img'] ?>" tooltip="<?php echo  $championData['skills']['skillInfo'][$order-1]['name'] ?>"/>
+    <span class="viktor-key"><?php echo  $championData['skills']['skillInfo'][$order-1]['key'] ?></span>
+    <img src="//ddragon.leagueoflegends.com/cdn/<?php echo  CORE_DDPATCH ?>/img/item/<?php echo  3196+$i ?>.png" class="possible-build"/>
+  </div>
+  <?php  if ($i!==2){ ?> <small>></small> <?php }?>
+
+  <?php  $i++; } ?>
+  <div class="build-text"><strong><?php echo  $viktor['winPercent'] ?>%</strong> Win Rate | <strong><?php echo $viktor['games'] ?></strong> Games </div>
+</div>

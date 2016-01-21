@@ -1,0 +1,12 @@
+User-agent: *
+
+Disallow: /attach/
+Disallow: /ctrl/
+Disallow: /data/
+Disallow: /img/
+Disallow: /install/
+Disallow: /js/
+Disallow: /lang/
+Disallow: /lib/
+Disallow: /model/
+Disallow: /tpl/
