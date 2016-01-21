@@ -6,34 +6,58 @@ if(!defined('IN_WP')) {
 
 class championControl extends baseModel
 {
+    protected $roleList = array(
+        'Top' => 'TOP',
+        'Middle' => 'MIDDLE',
+        'Support' => 'DUO_SUPPORT',
+        'ADC' => 'DUO_CARRY',
+        'Jungle' => 'JUNGLE',
+        'top' => 'TOP',
+        'middle' => 'MIDDLE',
+        'support' => 'DUO_SUPPORT',
+        'adc' => 'DUO_CARRY',
+        'jungle' => 'JUNGLE',
+        'adcsupport' => 'ADCSUPPORT',
+        'synergy' => 'SYNERGY'
+    );
+
+    protected $roleKey = array(
+        'TOP' => 'Top',
+        'MIDDLE' => 'Middle',
+        'DUO_SUPPORT' => 'Support',
+        'DUO_CARRY' => 'ADC',
+        'JUNGLE' => 'Jungle',
+        'ADCSUPPORT' => 'adcsupport',
+        'SYNERGY' => 'synergy'
+    );
+
     public function __construct() 
     {
-		$this->homeControl();
-	}
+        $this->homeControl();
+    }
 
     public function homeControl() 
     {
 		parent::__construct();
-		$this->loadModel('champion');
+        $this->loadModel('champion');
+        $this->tpl->assign('appName', 'championPage');
     }
 
     public function onDefault() 
     {
-        if(isset($_GET['role'])) {
-            $this->getChampionRole($_GET['champKey'], $_GET['role']);
-        } else {
-            $this->getChampion($_GET['champKey']);
-        }
-
-        $this->tpl->display('champion');
-    }
-
-    protected function getChampion($champKey)
-    {
+        $champKey = $_GET['champKey'];
         $model = $_ENV['championModel'];
 
         $champion = $model->getChampionRoles($champKey);
-        $champion['role'] = $champion['roles']['0']['role'];
+
+        if(isset($_GET['role']) && $_GET['role']) {
+            $champRole = $this->roleList[$_GET['role']];
+            $champion['role'] = $champRole;
+            $champion['roleTitle'] = $this->roleKey[$champRole];
+
+        } else {
+            $champion['role'] = $champion['roles']['0']['role'];
+        }
         
         $champPage = $model->getChampionPage($champKey, $champion['role']);
         $generalRole = $model->getOverallRoleData($champion['role']);
@@ -43,6 +67,13 @@ class championControl extends baseModel
         $this->tpl->assign('generalRole', $generalRole);
         $this->tpl->assign('champion', $champion);
         $this->tpl->assign('overallStats', $overallStats);
+        
+        $this->tpl->assign('masteryOrder', array('Offense','Defense','Utility'));
+        $this->tpl->display('champion');
+    }
+
+    protected function getChampion($champKey)
+    {
     }
 
     protected function getChampionRole($champKey, $role)

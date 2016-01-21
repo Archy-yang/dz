@@ -24,7 +24,11 @@ class homeControl extends baseModel {
 		$this->tpl->assign('summaries', $summaries);
 		$this->tpl->assign('data', $compData);
 		$this->tpl->display('home');
-	}
+    }
+
+    public function onStatistic()
+    {
+    }
 }
 
 ?>

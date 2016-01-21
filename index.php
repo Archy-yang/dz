@@ -1,6 +1,5 @@
 <?php
 
-
 if(!@include_once './data/config.inc.php') {
 	//header('Location: ./install/index.php');
 	exit();

@@ -34,3 +34,4 @@ define('WAPCONV', 0);
 define('ISWAP', 0);
 define('MAGIC_QUOTES_GPC', true);
 define("CORE_DDPATCH", '6.1.1');
+define('APP_NAME', 'core');

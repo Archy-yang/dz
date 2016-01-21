@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-3">
-                    <% include champion/gamelength_experience_summoners.ejs %>
+                    <? include $this->getObj("champion/gamelength_experience_summoners"); ?>
                 </div>
 
             </div>
@@ -33,32 +33,32 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-6">
                     <div>
-                        <% if (championData.skills.highestWinPercent.winPercent) { %>
-                        <% include champion/skill_order.ejs %>
-                        <% } %>
+                        <?php if ($championData['skills']['highestWinPercent']['winPercent']) { ?>
+                        <? include $this->getObj("champion/skill_order"); ?>
+                        <?php } ?>
                     </div>
                     <div>
-                        <% if (championData.runes.highestWinPercent) { %>
-                        <% include champion/runes.ejs %>
-                        <% } %>
+                        <?php if ($championData['runes']['highestWinPercent']) { ?>
+                        <? include $this->getObj("champion/runes"); ?>
+                        <?php } ?>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="row" style="margin-top:0px">
                         <div class="col-xs-12 col-sm-12 col-md-7">
-                            <% if (championData.items.highestWinPercent) { %>
-                            <% include champion/core_build.ejs %>
-                            <% } %>
+                            <?php if ($championData['items']['highestWinPercent']) { ?>
+                            <? include $this->getObj("champion/core_build"); ?>
+                            <?php } ?>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-5">
-                            <% include champion/first_items.ejs %>
+                            <? include $this->getObj("champion/first_items"); ?>
                         </div>
                     </div>
                     <div class="row">
-                        <% if (championData.masteries.mostGames.masteries[0]) { %>
-                        <% include champion/masteries.ejs %>
-                        <% } %>
+                        <?php if ($championData['masteries']['mostGames']['masteries'][0]) { ?>
+                        <? include $this->getObj("champion/masteries"); ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
     </div>
 
     <div class="matchups">
-        <% include champion/counters_matchups.ejs %>
+        <? include $this->getObj("champion/counters_matchups"); ?>
     </div>
 
 

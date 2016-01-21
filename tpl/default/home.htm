@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row summary">
         <div class="win-summary summary-side" style="border-right: 1px solid #f2f2f2;">
-            <span class="champion-name champion-list-header"><a href="statistics/#?sortBy=general.winPercent&order=descend"><span class="summary-highlight">
+            <span class="champion-name champion-list-header"><a href="statistics/?sortBy=general.winPercent&order=descend"><span class="summary-highlight">
             胜率</span></a></span>
 
             <table class="table table-striped">
@@ -16,7 +16,7 @@
               <tbody>
                   <?php for($y = 0; $y < count($summaries); $y++) { ?>
                  <tr>
-                  <td><a href="/#?a=statistic&ssortBy=general.winPercent&order=descend&roleSort=<?php echo  $summaries[$y]['title']; ?>">
+                  <td><a href="/?a=statistic&ssortBy=general.winPercent&order=descend&roleSort=<?php echo  $summaries[$y]['title']; ?>">
                   <?php  if ($summaries[$y]['title'] === 'Top'){  ?>
                     上单
                   <?php } else if ($summaries[$y]['title'] === 'Jungle') {  ?>
@@ -51,7 +51,7 @@
             </table>
         </div>
         <div class="overall-summary summary-side" style="border-right: 1px solid #f2f2f2;position:relative">
-            <span class="champion-name champion-list-header"><a href="statistics/#?sortBy=general.overallPosition&order=ascend"><span class="summary-highlight">总体表现排行</span></a></span><span class="glyphicon glyphicon-question-sign" style="position: absolute;right: 20px;top:20px;" tooltip="Overall Performance takes more than win rate into account - including play rate, ban rate, kda, gold, cs, damage and other role dependant stats."></span>
+            <span class="champion-name champion-list-header"><a href="statistics/?sortBy=general.overallPosition&order=ascend"><span class="summary-highlight">总体表现排行</span></a></span><span class="glyphicon glyphicon-question-sign" style="position: absolute;right: 20px;top:20px;" tooltip="Overall Performance takes more than win rate into account - including play rate, ban rate, kda, gold, cs, damage and other role dependant stats."></span>
             <table class="table table-striped">
               <thead>
                 <tr >
@@ -96,7 +96,7 @@
 
         </div>
         <div class="change-summary summary-side">
-            <span class="champion-name champion-list-header"><a href="statistics/#?sortBy=general.overallPositionChange&order=descend"><span class="summary-highlight">英雄排名变化</span></a></span>
+            <span class="champion-name champion-list-header"><a href="statistics/?sortBy=general.overallPositionChange&order=descend"><span class="summary-highlight">英雄排名变化</span></a></span>
 
             <table class="table table-striped">
               <thead>

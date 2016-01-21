@@ -1,0 +1,34 @@
+<h2 class="champion-stats" style="margin-top:40px">最常见的符文</h2>
+<div class="rune-collection">
+    <?php  for($i = 0; $i < count($championData['runes']['mostGames']['runes']); $i++){ ?>
+    <div class="rune-type-area" style="width:98%">
+        <div class="rune-img">
+            <img src="//ddragon.leagueoflegends.com/cdn/<?php echo  CORE_DDPATCH ?>/img/rune/<?php echo  $championData['runes']['mostGames']['runes'][$i]['img'] ?>" /> <strong><?php echo  $championData['runes']['mostGames']['runes'][$i]['number'] ?>x</strong> <span class="rune-title"><?php echo  $championData['runes']['mostGames']['runes'][$i]['name'] ?> </span>
+            <span class="rune-benefits"><small><?php echo  $championData['runes']['mostGames']['runes'][$i]['description'] ?></small></span>
+        </div>
+        <div class="rune-info">
+        </div>
+    </div>
+    <?php  } ?>
+</div>
+<div class="build-text">
+    <strong><?php echo  $championData['runes']['mostGames']['winPercent'] ?>%</strong> 胜率 | <strong><?php echo  $championData['runes']['mostGames']['games'] ?></strong> 局比赛
+</div>
+
+
+<h2 class="champion-stats" style="margin-top:45px">胜率最高的符文</h2>
+<div class="rune-collection">
+    <?php  for($i = 0; $i < count($championData['runes']['highestWinPercent']['runes']); $i++){ ?>
+    <div class="rune-type-area" style="width:98%">
+        <div class="rune-img">
+            <img src="//ddragon.leagueoflegends.com/cdn/<?php echo  CORE_DDPATCH ?>/img/rune/<?php echo  $championData['runes']['highestWinPercent']['runes'][$i]['img'] ?>" /> <strong><?php echo  $championData['runes']['highestWinPercent']['runes'][$i]['number'] ?>x</strong> <span class="rune-title"><?php echo  $championData['runes']['highestWinPercent']['runes'][$i]['name'] ?> </span>
+            <span class="rune-benefits"><small><?php echo  $championData['runes']['highestWinPercent']['runes'][$i]['description'] ?></small></span>
+        </div>
+        <div class="rune-info">
+        </div>
+    </div>
+    <?php  } ?>
+</div>
+<div class="build-text">
+    <strong><?php echo  $championData['runes']['highestWinPercent']['winPercent'] ?>%</strong> 胜率 | <strong><?php echo  $championData['runes']['highestWinPercent']['games'] ?></strong> 局比赛
+</div>
